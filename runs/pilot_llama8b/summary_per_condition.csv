@@ -1,0 +1,3 @@
+model_name,condition,confidence_shift_verbal_cat__mean,confidence_shift_verbal_cat__std,confidence_shift_verbal_cat__count,confidence_shift_caa_proj__mean,confidence_shift_caa_proj__std,confidence_shift_caa_proj__count,accuracy_shift__mean,accuracy_shift__std,accuracy_shift__count
+llama3_8b,cue_familiarity_priming,0.125,0.28867513459481287,16,-0.07693765819054393,0.29464201809582974,23,0.0,0.6030226891555273,23
+llama3_8b,target_priming,0.14705882352941177,0.3429971702850177,17,-0.028682018377242494,0.2635528061797487,23,0.043478260869565216,0.638055345958271,23

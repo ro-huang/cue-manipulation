@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "koriat_cues"
+version = "0.1.0"
+description = "Koriat-style cue manipulations of LLM confidence"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "Fulcrum Research"}]
+dependencies = [
+    "torch>=2.1",
+    "transformers>=4.44",
+    "accelerate>=0.30",
+    "datasets>=2.18",
+    "anthropic>=0.40",
+    "pydantic>=2.5",
+    "pyyaml>=6.0",
+    "pandas>=2.1",
+    "numpy>=1.26",
+    "scipy>=1.11",
+    "scikit-learn>=1.4",
+    "statsmodels>=0.14",
+    "pyarrow>=15.0",
+    "tqdm>=4.66",
+    "tenacity>=8.2",
+    "click>=8.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.5"]
+plot = ["matplotlib>=3.8", "seaborn>=0.13"]
+bnb = ["bitsandbytes>=0.43"]
+
+[project.scripts]
+koriat = "koriat_cues.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

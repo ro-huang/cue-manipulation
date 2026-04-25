@@ -1,0 +1,14 @@
+# MixedLM with random item intercept. Fits that failed to converge are reported as NO_FIT.
+
+=== llama3_8b / log_prob ===
+NO_FIT
+
+=== llama3_8b / verbal_cat ===
+NO_FIT
+
+=== llama3_8b / verbal_num ===
+NO_FIT
+
+=== llama3_8b / caa_proj ===
+NO_FIT
+

@@ -1,0 +1,2 @@
+model_name,n,mean_accuracy_shift,mean_confidence_shift_verbal_cat,DI_verbal_cat,mean_confidence_shift_caa_proj,DI_caa_proj
+llama3_8b,23,0.0,0.125,,-0.07693765819054393,

@@ -1,0 +1,18 @@
+=== llama3_8b / verbal_cat ===
+                                            term  estimate  ...         t         p
+0                                      Intercept  0.125000  ...  1.923398  0.064297
+1                 C(condition)[T.target_priming]  0.002119  ...  0.023350  0.981531
+2                                 accuracy_shift  0.250000  ...  2.355672  0.025464
+3  accuracy_shift:C(condition)[T.target_priming]  0.088983  ...  0.614061  0.543962
+
+[4 rows x 5 columns]
+
+=== llama3_8b / caa_proj ===
+                                            term  estimate  ...         t         p
+0                                      Intercept -0.076938  ... -1.408569  0.166323
+1                 C(condition)[T.target_priming]  0.044226  ...  0.571841  0.570478
+2                                 accuracy_shift  0.244709  ...  2.642226  0.011522
+3  accuracy_shift:C(condition)[T.target_priming] -0.152027  ... -1.193004  0.239564
+
+[4 rows x 5 columns]
+

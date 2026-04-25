@@ -1,0 +1,46 @@
+# OLS with cluster-robust SEs on item_id.
+
+=== llama3_8b / log_prob ===
+                                              term  ...             p
+0                                        Intercept  ...  4.025530e-18
+1                 C(condition)[T.random_paragraph]  ...  5.649754e-04
+2                   C(condition)[T.target_priming]  ...  3.911815e-14
+3                                   accuracy_shift  ...  1.666823e-05
+4  accuracy_shift:C(condition)[T.random_paragraph]  ...  1.793548e-01
+5    accuracy_shift:C(condition)[T.target_priming]  ...  4.989961e-02
+
+[6 rows x 5 columns]
+
+=== llama3_8b / verbal_cat ===
+                                              term  ...             p
+0                                        Intercept  ...  9.101791e-08
+1                 C(condition)[T.random_paragraph]  ...  3.604309e-21
+2                   C(condition)[T.target_priming]  ...  6.983080e-04
+3                                   accuracy_shift  ...  3.792464e-07
+4  accuracy_shift:C(condition)[T.random_paragraph]  ...  9.091975e-01
+5    accuracy_shift:C(condition)[T.target_priming]  ...  6.439342e-01
+
+[6 rows x 5 columns]
+
+=== llama3_8b / verbal_num ===
+                                              term  ...             p
+0                                        Intercept  ...  8.016827e-04
+1                 C(condition)[T.random_paragraph]  ...  1.456664e-16
+2                   C(condition)[T.target_priming]  ...  2.112203e-05
+3                                   accuracy_shift  ...  2.209567e-07
+4  accuracy_shift:C(condition)[T.random_paragraph]  ...  2.196042e-01
+5    accuracy_shift:C(condition)[T.target_priming]  ...  7.342761e-01
+
+[6 rows x 5 columns]
+
+=== llama3_8b / caa_proj ===
+                                              term  ...             p
+0                                        Intercept  ...  8.778120e-01
+1                 C(condition)[T.random_paragraph]  ...  3.379691e-05
+2                   C(condition)[T.target_priming]  ...  5.889888e-01
+3                                   accuracy_shift  ...  1.529937e-07
+4  accuracy_shift:C(condition)[T.random_paragraph]  ...  9.666268e-01
+5    accuracy_shift:C(condition)[T.target_priming]  ...  1.668777e-03
+
+[6 rows x 5 columns]
+
