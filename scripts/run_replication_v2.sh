@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
-# Replication v2: Llama-70B + Qwen-72B + Gemma-9B + Gemma-27B on the locked design.
+# Replication v2: Llama-3.1-70B + Qwen-2.5-72B on the locked design (see config).
 # Designed to be invoked on a GPU pod with sufficient memory (e.g. H100 80GB).
 #
 # Notes:
-# - 9B and 27B run in bf16; 70B and 72B run in int8 to fit on a single 80GB GPU.
+# - 70B/72B use int4 (bitsandbytes) to fit on a single 80GB GPU (see prereg §5).
 # - Reuses items + primes from runs/mve_llama8b/.
-# - The full run is ~3 hours wall-clock on a single H100; resumable via the
-#   runner's parquet-checkpoint logic.
+# - Wall-clock depends on download + model; resumable via the runner's parquet logic.
 set -euo pipefail
 
 cd "${KORIAT_ROOT:-/workspace/koriat}"
@@ -16,10 +15,10 @@ cd "${KORIAT_ROOT:-/workspace/koriat}"
 echo "=== bootstrap items + primes ==="
 ./scripts/bootstrap_replication.sh runs/mve_llama8b runs/replication_v2
 
-echo "=== installing extra deps for int8 quantization ==="
+echo "=== installing bitsandbytes (int4) ==="
 pip install --quiet --break-system-packages bitsandbytes >/dev/null 2>&1 || pip install --quiet bitsandbytes
 
-echo "=== stage 04: run experiment on 4 models (bf16 for ≤27B, int8 for 70B-class) ==="
+echo "=== stage 04: run experiment (per configs/replication_v2.yaml) ==="
 PYTHONPATH=src python3 scripts/04_run_experiment.py --config configs/replication_v2.yaml
 
 echo "=== stage 05: analyze ==="

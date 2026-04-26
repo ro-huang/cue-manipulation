@@ -9,12 +9,7 @@
 # can overlay all six rows with one --run-dir argument set.
 #
 # PRECISION DEVIATION (logged in .context/preregistration.md §5):
-#   - 9B and 27B models: bf16, identical to discovery.
-#   - 70B and 72B models: int8 quantization, to fit on a single 80GB GPU. The
-#     experiment is about effect direction (does the prime shift confidence?), and
-#     int8 inference quality is well-established to preserve generation behavior at
-#     this scale. Documented as a deviation; if the dissociation pattern hinges on
-#     int8-vs-bf16 difference at the 70B scale, that's itself a finding.
+#   70B/72B use int4 (NF4 + bf16 compute), not full bf16, to fit on one H100 80GB.
 #
 # As with replication_qwen7b: items + primes are reused from runs/mve_llama8b/.
 # Only stages 04 (experiment) + 05 (analyze) are run; CAA vector build is skipped
