@@ -1,0 +1,20 @@
+# Experiment outputs (regenerable; can be large)
+runs/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+build/
+dist/
+
+# Envs / secrets
+.env
+.venv/
+venv/
+
+# OS / editor cruft
+.DS_Store

@@ -1,0 +1,46 @@
+run_name: pilot_llama8b
+seed: 0
+output_dir: runs
+
+models:
+  - name: llama3_8b
+    hf_id: meta-llama/Llama-3.1-8B-Instruct
+    dtype: bfloat16
+    device_map: auto
+    max_new_tokens: 32
+    caa_layer: -12
+
+data:
+  dataset: triviaqa
+  split: validation
+  n_items: 50
+  oversample: 10
+  single_entity_only: true
+  baseline_acc_min: 0.2
+  baseline_acc_max: 0.8
+  baseline_acc_n_samples: 5
+  seed: 0
+
+primes:
+  # Sonnet is ~10x cheaper than Opus and fully capable for short priming passages.
+  generator_model: claude-sonnet-4-6
+  judge_model: claude-sonnet-4-6
+  max_leak_rate: 0.05
+  max_sentences: 3
+  counterbalance_order: false
+
+caa:
+  n_contrast_pairs: 200
+  read_position: post_newline
+
+conditions:
+  - baseline
+  - cue_familiarity_priming
+  - target_priming
+
+confidence_measures:
+  - log_prob
+  - verbal_cat
+  - verbal_num
+  - caa_proj
+  - p_true
