@@ -132,3 +132,9 @@ Extending replication to two larger models (same families as the discovery + fir
 2. **Gemma-2-{9B, 27B} dropped from v2.** Originally part of the v2 plan; user dropped them after license-acceptance discussion (2026-04-26). Replication v2 is therefore Llama-3.1-70B + Qwen-2.5-72B only. The config retains a stub comment so they can be added in a future run if desired (the resumable runner would fill those rows without re-running Llama/Qwen).
 
 Output dir: `runs/replication_v2/` (single parquet, two model rows).
+
+### 2026-04-27 — Replication v3 (Gemma-2-9B-IT + Gemma-2-27B-IT)
+
+Adds a **third model family** (Google Gemma) at 9B and 27B on the same locked item set and primes as discovery / Qwen-7B. Both models run in **bf16** (no int4 deviation). Config: `configs/replication_v3_gemma.yaml`; outputs under `runs/replication_v3_gemma/`. Runner: `scripts/run_replication_v3_gemma.sh`. Requires Hugging Face license acceptance for `google/gemma-2-9b-it` and `google/gemma-2-27b-it` plus `HF_TOKEN` with download rights.
+
+Automated C1/C2/C3 table: `PYTHONPATH=src python scripts/11_prereg_verdict.py --trials runs/replication_v3_gemma/trials.parquet`.
